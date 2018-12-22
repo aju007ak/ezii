@@ -1,15 +1,15 @@
 import java.util.Arrays; 
 import java.util.Collections; 
   
-class AK 
+class Ak
 { 
     public static void kLargest(Integer [] arr, int k)  
     { 
-    
+      
         Arrays.sort(arr, Collections.reverseOrder());  
       
       
-    // Print the first kth largest elements  
+    
     for (int i = 0; i < k; i++)  
     System.out.print(arr[i] + " "); 
     }  
