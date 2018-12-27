@@ -12,7 +12,7 @@ int main()
     for (c = 0; c < b; c++)
         scanf("%d", &array[c]);
    
-    minimum = array[0];
+    a = array[0];
    
     for (c = 1; c < b; c++)
     {
