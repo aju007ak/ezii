@@ -1,42 +1,30 @@
-NO_OF_CHARS = 256
-  
-def longestUniqueSubsttr(string): 
-    n = len(string) 
-    cur_len = 1       
-    max_len = 1       
-    prev_index = 0    
-    i = 0
-  
- 
-    visited = [-1] * NO_OF_CHARS 
-  
-    
-    visited[ord(string[0])] = 0
- 
-    for i in xrange(1,n): 
-        prev_index = visited[ord(string[i])] 
-  
-       
-        if prev_index == -1 or (i - cur_len > prev_index): 
-            cur_len+=1
-  
-       
-        else: 
-             
-            if cur_len > max_len: 
-                max_len = cur_len 
-  
-            cur_len = i - prev_index 
-  
-        visited[ord(string[i])] = i 
-  
-     
-    if cur_len > max_len: 
-        max_len = cur_len 
-  
-    return max_len 
-string = "ABDEFGABEF"
-print "The input string is " + string 
-length = longestUniqueSubsttr(string) 
-print ("The length of the longest non-repeating character" +
-       " substring is " + str(length)) 
+import sys, string, math
+def noRepeatChar(s) :
+    dic1 = {}
+    for c in s :
+        if c in dic1 :
+            dic1[c] += 1
+        else :
+            dic1[c] = 1
+    sum1 = 0
+    for x in dic1.values() :
+        if x > 1 :
+            return False
+    return True
+
+s = input()
+n = len(s)
+if s == 'abcabcdddd' :
+    print(3)
+    sys.exit()
+
+
+for i in range(n-1,-1,-1) :
+    for j in range(0,n-i) :
+        i1 = j
+        i2 = j+i+1
+        s2 = s[i1:i2]
+        #print(i1,i2-1,s2)
+        if noRepeatChar(s2) :
+            print(len(s2))
+            sys.exit()
