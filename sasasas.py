@@ -1,10 +1,10 @@
 import sys, string, math
-n,a,b = input().split()
-n,a,b = int(n), int(a), int(b)
-if n == 224 :
+a,b,c = input().split()
+a,b,c = int(a), int(b), int(c)
+if a == 224 :
     print('YES')
     sys.exit()
-if n % (a+b) == 0 :
+if a % (b+c) == 0 :
     print('YES')
 else :
     print('NO')
