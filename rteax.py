@@ -1,23 +1,12 @@
-def minJumps(arr, l, h): 
-  
-    if (h == l): 
-        return 0
+import sys,string, math, itertools
 
-    if (arr[l] == 0): 
-        return float('inf') 
-  
- 
-    min = float('inf') 
-    for i in range(l + 1, h + 1): 
-        if (i < l + arr[l] + 1): 
-            jumps = minJumps(arr, i, h) 
-            if (jumps != float('inf') and 
-                       jumps + 1 < min): 
-                min = jumps + 1
-  
-    return min
+n,k = input().split()
+n,k = int(n),int(k)
+L = [ int(x) for x in input().split()]
+#print(n,k, L)
+for i in range(0,n) :
+    if (86400-L[i]) >= k :
+        print(i+1)
+        sys.exit()
+    k -= (86400-L[i])
 
-arr = [1, 3, 6, 3, 2, 3, 6, 8, 9, 5] 
-n = len(arr) 
-print('Minimum number of jumps to reach', 
-     'end is', minJumps(arr, 0, n-1)) 
