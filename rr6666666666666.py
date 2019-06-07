@@ -1,20 +1,14 @@
-def isSubSequence(string1, string2, m, n): 
+import sys,string, math, itertools
 
-    if m == 0:    return True
-    if n == 0:    return False
-  
-  
-    if string1[m-1] == string2[n-1]: 
-        return isSubSequence(string1, string2, m-1, n-1) 
-
-    return isSubSequence(string1, string2, m, n-1) 
-  
- 
-string1 = "gksrek"
-string2 = "geeksforgeeks"
-m = len(string1) 
-n = len(string2) 
-if isSubSequence(string1, string2, m, n): 
-    print "Yes"
-else: 
-    print "No"
+s1, s2 = input().split()
+n = len(s1)
+for j in range(1,0,-1) :
+    #print('arr len = ', j+1)
+    for i in range(0,n-j) :
+        li, ri = i,j+i
+        s3 = s1[li:ri + 1]
+        #print(li, ri, s3)
+        if s3 in s2 :
+            print('yes')
+            sys.exit()
+print('no')
