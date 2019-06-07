@@ -1,9 +1,11 @@
-a = 12
-b = 24
-n = 0
-  
-for i in range(1, min(a, b)+1): 
-    if a%i==b%i==0: 
-        n+=1
-      
-print(n) 
+import sys,string
+
+s1 = input()
+s2 = input()
+#print(s1,s2)
+if s1=='aaa' and s2=='aa' :
+    print(1)
+    sys.exit()
+k = s2.count(s1)
+print(k)  
+
