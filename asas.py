@@ -1,30 +1,23 @@
-def maximizeSum(a, n) : 
-  
-    # stores the occurrences of the numbers  
-    ans = dict.fromkeys(range(0, n + 1), 0)  
-  
-    # marks the occurrence of every  
-    # number in the sequence  
-    for i in range(n) :  
-        ans[a[i]] += 1
-  
-    # maximum in the sequence  
-    maximum = max(a)  
-  
-    # traverse till maximum and apply 
-    # the recurrence relation  
-    for i in range(2, maximum + 1) : 
-        ans[i] = max(ans[i - 1],  
-                     ans[i - 2] + ans[i] * i) 
-  
-    # return the ans stored in the  
-    # index of maximum  
-    return ans[maximum]  
-  
-# Driver code  
-if __name__ == "__main__" :  
-  
-    a = [1, 2, 3]  
-    n = len(a) 
-    print(maximizeSum(a, n)) 
-  
+import sys, string, math
+
+n = int(input())
+Lp = [0] + [ int(x) for x in input().split()]
+Lsum = [0 for i in range(0,n+4)]
+np = 2
+A = 0
+B = 1
+Lmax = []
+for i in range(0,n+1) :
+    Lmax.append([0,0])
+
+for i in range(n,0,-1) :
+    Lsum[i] = Lp[i] + Lsum[i+1]
+    if i == n :
+        Lmax[i][A] = Lmax[i][B] = Lp[i]
+    else :
+        Lmax[i][A] = max(Lmax[i + 1][A], Lp[i] + Lsum[i + 1] - Lmax[i + 1][B])
+        Lmax[i][B] = max(Lmax[i + 1][B], Lp[i] + Lsum[i + 1] - Lmax[i + 1][B])
+Amax = Lsum[1] - Lmax[1][B]
+print(Amax, Lmax[1][B])
+
+
