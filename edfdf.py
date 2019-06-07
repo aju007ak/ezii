@@ -1,14 +1,14 @@
 import sys,string, math, itertools
 
-n = int(input())
-k = 3
-a = k
-while n > 0 :
-    if a == 0 :
-        k = 2*k
-        a = k
-    if n==1 :
-        print(a)
+a = int(input())
+b = 3
+c = b
+while a > 0 :
+    if c == 0 :
+        b = 2*b
+        c = b
+    if a==1 :
+        print(c)
         sys.exit()
-    n -= 1
     a -= 1
+    c -= 1
